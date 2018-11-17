@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HOTH V!</title>
+		<style>
+			.headList{
+				color: blue;
+
+			}
+			img {
+				width: 5%;
+				height: 5%;
+			}
+		</style>	
+	</head>
+	<body>
+		<div class = "headList">
+			<h1><i>Hello</i></h1>
+			<h2><u>Hello</u></h2>
+			<h3>Hello</h3>
+			<h4>Hello</h4>
+		</div>
+
+		<button onClick = "clickToggle()"> Toggle Image!</button>
+
+		<!-- image is self closing tag -->
+		<img id = "toggleButton" src  = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"> 
+		<a href="https://www.google.com/"> GO GOOGLE. </a>
+
+		<script>
+			let visible = false;
+			let image = document.getElementById('toggleButton');
+			function clickToggle(){
+				let image = document.getElementById('toggleButton');
+				if (!visible)
+				{
+					visible = true;
+					// can replace display to others such as color...
+					image.style.display = 'block';
+				}
+				else
+				{
+					visible = false;
+					image.style.display = 'none';
+				}
+			}
+		</script>
+
+	</body>
+</html>
