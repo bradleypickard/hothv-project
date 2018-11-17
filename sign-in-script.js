@@ -4,6 +4,8 @@
     let signInButton;
     let signOutButton;
     
+    let questionOne;
+
     let userPic;
     let userName;
     
@@ -32,6 +34,8 @@
       // Shortcuts to DOM Elements.
       signInButton = document.getElementById('sign-in');
       signOutButton = document.getElementById('sign-out');
+      
+      questionOne = document.getElementById('question-1');
       
       userPic = document.getElementById('user-pic');
       userName = document.getElementById('user-name');
@@ -63,15 +67,19 @@
         userPic.style.backgroundImage = 'url(' + profilePicUrl + ')';
         userName.textContent = userNameText;
     
-        // Show user's profile and sign-out button.
+        // Show user's profile, sign-out button and question 1.
         userName.removeAttribute('hidden');
         userPic.removeAttribute('hidden');
         signOutButton.removeAttribute('hidden');
-    
+        questionOne.removeAttribute('hidden');
+        
         // Hide sign-in button.
         signInButton.setAttribute('hidden', 'true');
+        
+        
+        
         } else { // User is signed out!
-        // Hide user's profile and sign-out button.
+        // Hide user's profile, sign-out button, and question 1.
         userName.setAttribute('hidden', 'true');
         userPic.setAttribute('hidden', 'true');
         signOutButton.setAttribute('hidden', 'true');
