@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Firechat</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/155/fire_1f525.png" />
+  </head>  
+  <body>
+    <header>
+      <h1>Firechat 🔥</h1>
+    </header>
+    
+    <div id="user-container">
+      <div hidden id="user-pic"></div>
+      <div hidden id="user-name"></div>
+      <button id="sign-out">
+        Sign-out
+      </button>
+      <button id="sign-in">
+        Sign-in with Google
+      </button>
+    </div>
+
+    <div id="messages-card" class="mdl-card">
+      <ul id="messages">
+        <span id="message-filler"></span>
+      </ul>
+      <form id="message-form" action="#">
+        <input placeholder="Firechat" type="text" id="message">
+        <button id="submit" disabled type="submit">
+          SEND
+        </button>
+      </form>
+    </div>
+    
+    <p id="error-tray">
+      
+    </p>
+
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js"></script>
+    
+    <!-- FIRE BASE SCRIPTS -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+    </script>
+    
+    <!-- HOTHV SCRIPTS -->
+    <script src="./script.js" type="text/javascript"></script>
+    
+
+<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAuVZS9WlM2XP0BLGr58AdKeIw4sAZdtNc",
+    authDomain: "firechat-aeebc.firebaseapp.com",
+    databaseURL: "https://firechat-aeebc.firebaseio.com",
+    projectId: "firechat-aeebc",
+    storageBucket: "firechat-aeebc.appspot.com",
+    messagingSenderId: "225774951846"
+  };
+  firebase.initializeApp(config);
+</script>
+  </body>
+</html>
+
