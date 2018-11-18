@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HOTH V!</title>
+		<style>
+			.headList{
+				color: green;
+			}
+			img {
+				width: 20%;
+				height: 20%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="headList">
+			<h1><i>Hello!</i></h1>
+			<h2>Hello!</h2>
+			<h3><u>Hello!</u></h3>
+			<h4>Hello!</h4>
+		</div>
+
+		<button onClick="clickToggle()">Toggle Image!</button>
+
+		<img id="toggleButton" src="https://imgflip.com/s/meme/Surprised-Pikachu.jpg">
+		<a href="https://www.google.com">The answer to everything.</a>
+
+		<script>
+			let visible = false;
+
+			function clickToggle(){
+				let image = document.getElementById('toggleButton');
+				if (!visible) {
+					visible = true;
+					image.style.display = 'block';
+				}
+				else {
+					visible = false;
+					image.style.display = 'none';
+				}
+			}
+		</script>
+
+	</body>
+</html>
