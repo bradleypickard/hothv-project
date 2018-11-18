@@ -24,17 +24,25 @@ h1 {
 }
 
 #user-container {
-  display: flex;
-  font-size: 14px;
+  font-size: 20px;
+  font-weight: bold;
   background-color: white;
- 
+}
+
+#user-name {
   align-self: center;
+}
+
+#userInfo {
+  width: 23%; 
+  background-color: gold;
+  align-self: center;
+  text-align: center;
 }
 
 
 #messages-card {
   border: 2px solid black;
-  /*width: 40%;*/
   background-color: white;
   
   align-self: center;
@@ -49,6 +57,16 @@ h1 {
 }
 
 #question {
+  font-size: 24px;
+  color: black; 
+  font-family: "Helvetica";
+  font-weight: bold;
+  background-color: white;
+  padding: 0.25em 0 0.25em 0;
+  align-self: center;
+}
+
+#finished {
   font-size: 24px;
   color: black; 
   font-family: "Helvetica";
@@ -79,6 +97,24 @@ h1 {
   display: flex;
 }
 
+#sign-in {
+  padding: 5px;
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+  border: 1px black;
+}
+
+#sign-out {
+  padding: 5px;
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+  border: 1px black;
+}
+
 #message-form input {
   flex: 1 1 0;
   border-left: none;
@@ -93,6 +129,21 @@ h1 {
   font-weight: bold;
   font-style: italic;
   border: none;
+}
+
+#continue {
+  padding: 5px;
+  background-color: gold;
+  color: black;
+  font-weight: bold;
+  font-style: italic;
+  border: none;
+  align-self: center;
+  text-align: center;
+}
+
+#error-tray {
+ color: white; 
 }
 
 .name {
