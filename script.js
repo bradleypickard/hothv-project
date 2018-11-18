@@ -22,9 +22,24 @@ let messagesRef;
 let provider;
 var count = 0;
 var count2 = 0;
-var questionArray = new Array("Welcome to your new best friend when it comes to food on the Hill!", 
-                              "How was your day?",
-                              "What's your favorite color?");
+var questionArray = new Array("Welcome to your new best friend when it comes to food on the Hill!",
+                              "For Breakfast, cereal or donuts ",
+                              "How many calories are in the chichen piadina",
+                              "What type of cuisine did you eat growing up:" + "\t" 
+                              + " 1 – American, 2 – Mexican.Spanish," + 
+                              "3 – Korean/Asian, 4 – Indian, 5 – American inspired international dishes, 6 – other",
+                              "How do you describe your current diet? 1. healthy"+
+                              "2. Unhealthy, 3 the same thing over and over, 4 unclear",
+                              "what do assoicate with the word drink: 1. orange juice 2. soda",
+                              "How likely to eat ethnic food: 1. very unlikely 2. unlikely 3. neutral 4. likely 5. very likely",
+                              "Was your favorite food cooked at home(1) or store bought(2) or both(3)?",
+                              "How likely are you to eat fruit on a regular day, from 1 - 5 (5 being most likely)",
+                              "How likely are you to eat greek food when available, from 1 - 5",
+                              "How often do you check nutritional values, from 1 - 5, 1 being never and 5 being always",
+                              "When you think of soup, do you think of veggie soup(1) or creamy soup(2) more?",
+                              
+
+                              );
 
 var answerArray = new Array (questionArray.length);
 
@@ -250,6 +265,7 @@ let displayMessage = (key, name, text, picUrl) => {
   count ++;
   if (count >= questionArray.length)
   {
+    messageInput.setAttribute('hidden', 'true');
     loadQuestion();
     load();
     count = 1;
@@ -267,6 +283,7 @@ let displayMessage = (key, name, text, picUrl) => {
 window.onload = function() {
   init();
 };
+
 
 
 
