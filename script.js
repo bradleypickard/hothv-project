@@ -1,5 +1,3 @@
-/* If you're feeling fancy you can add interactivity 
-    to your site with Javascript */
 
 let signInButton;
 let signOutButton;
@@ -13,6 +11,10 @@ let question;
 let userPic;
 let userName;
 
+let continuebutton;
+
+let finished;
+
 let auth;
 let database;
 let storage;
@@ -22,6 +24,8 @@ let messagesRef;
 let provider;
 var count = 0;
 var count2 = 0;
+var testing = 5;
+
 var questionArray = new Array("Welcome to your new best friend when it comes to food on the Hill!",
                               "For Breakfast, cereal or donuts ",
                               "How many calories are in the chichen piadina",
@@ -37,8 +41,6 @@ var questionArray = new Array("Welcome to your new best friend when it comes to 
                               "How likely are you to eat greek food when available, from 1 - 5",
                               "How often do you check nutritional values, from 1 - 5, 1 being never and 5 being always",
                               "When you think of soup, do you think of veggie soup(1) or creamy soup(2) more?",
-                              
-
                               );
 
 var answerArray = new Array (questionArray.length);
@@ -110,6 +112,9 @@ let init = () => {
   userPic = document.getElementById('user-pic');
   userName = document.getElementById('user-name');
   question = document.getElementById('question');
+  finished = document.getElementById('finished');
+  
+  continuebutton = document.getElementById('continue');
 
   // Saves message on form submit.
   messageForm.addEventListener('submit', saveMessage);
@@ -123,6 +128,7 @@ let init = () => {
   messageInput.addEventListener('change', toggleButton);
   
   initFirebase();
+  count = 0;
 }
 
 // Sets up shortcuts to Firebase features and initiate firebase auth.
@@ -187,6 +193,7 @@ let onAuthStateChanged = (user) => {
 
     // Show sign-in button.
     signInButton.removeAttribute('hidden');
+    
   }
 };
 
@@ -209,8 +216,6 @@ let resetInput = (element) => {
   element.value = '';
 };
 function load(){
-  console.log('ewfwe');
-  
   let userInfo = {
     'name': auth.currentUser.displayName,
     'answers': answerArray
@@ -263,13 +268,19 @@ let displayMessage = (key, name, text, picUrl) => {
   }
     
   count ++;
+  
   if (count >= questionArray.length)
   {
-    messageInput.setAttribute('hidden', 'true');
-    loadQuestion();
     load();
-    count = 1;
+    messageInput.setAttribute('hidden', 'true');
+    
+    continuebutton.removeAttribute('hidden');
+    submitButton.setAttribute('hidden', 'true');
+    
+    question.setAttribute('hidden', 'true');
+    finished.removeAttribute('hidden');
   }
+  
   // console.log(answerArray[count]);
   // Replace all line breaks by <br>.
   messageElement.innerHTML = messageElement.innerHTML.replace(/\n/g, '<br>');
@@ -283,8 +294,5 @@ let displayMessage = (key, name, text, picUrl) => {
 window.onload = function() {
   init();
 };
-
-
-
 
 
