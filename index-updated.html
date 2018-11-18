@@ -10,27 +10,38 @@
     <link rel="stylesheet" href="/style.css">
     <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/155/fire_1f525.png" />
   </head>  
-  <body>
-    <header>
+  <body background = "http://feast.hhs.ucla.edu/wp-content/uploads/2011/09/IMG_9542_SS1.jpg" >
+    
       <h1>Dining Master 9000</h1>
-    </header>
-   <div id="user-container">
-      <div hidden id="user-pic"></div>
+  
+  <div id="userInfo">
+    <div id="user-container">
       <div hidden id="user-name"></div>
-     
+    </div>
+    <div>
      <button id="sign-out">
-        Sign-out
+        SIGN OUT
       </button>
       <button id="sign-in">
-        Sign-in with Google
+        SIGN IN WITH GOOGLE
       </button>
     </div>
+    </div>
+   
    <br>
-    <div id="question"></div>
+    
+    <div id="inputArea">
+      <div id="question"></div>
     <p id = "finished" hidden>
-      Thank you
+      Please click 'Continue' to view your result.
     </p>
-    <br>
+    
+      
+      
+        <img id = "piadina" hidden src="https://skinnyms.com/wp-content/uploads/2017/03/Olive-Garden-Chicken-Piadina-Recipe-1-750x498.jpg"
+             height="259" width="375">
+      
+      
     
     <div id="messages-card" class="mdl-card">
       <ul hidden id="messages">
@@ -45,18 +56,16 @@
        <button onclick = "location.href ='/signout.html'" id="continue" type = "reset" hidden>
          CONTINUE
         </button>
-        
-      </form>
+         </form>
+    </div>
+    
     </div>
     
     <p id="error-tray">
       
     </p>
 
-    <!-- include the Glitch button to show what the webpage is about and
-          to make it easier for folks to view source and remix -->
-    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
-    <script src="https://button.glitch.me/button.js"></script>
+    
     
     <!-- FIRE BASE SCRIPTS -->
     <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
