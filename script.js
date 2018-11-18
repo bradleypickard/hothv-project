@@ -9,7 +9,7 @@ let messageForm;
 let messageInput;
 
 let submitButton;
-
+let question;
 let userPic;
 let userName;
 
@@ -21,7 +21,8 @@ let messagesRef;
 
 let provider;
 var count = 0;
-var questionArray = new Array("What's your GPA?", 
+var count2 = 0;
+var questionArray = new Array("Welcome to your new best friend when it comes to food on the Hill!", 
                               "How was your day?",
                               "What's your favorite color?");
 
@@ -43,8 +44,9 @@ let toggleButton = () => {
 // Saves a new message on the Firebase DB.
 let saveMessage = (e) => {
   e.preventDefault();
+  count2++;
   // Check that the user entered a message and is signed in.
-  if (messageInput.value && checkSignedInWithMessage()) {
+  if (messageInput.value && checkSignedInWithMessage()) { // 
     var currentUser = auth.currentUser;
     // Add a new message entry to the Firebase Database.
     messagesRef.push({
@@ -92,9 +94,11 @@ let init = () => {
   submitButton = document.getElementById('submit');
   userPic = document.getElementById('user-pic');
   userName = document.getElementById('user-name');
+  question = document.getElementById('question');
 
   // Saves message on form submit.
   messageForm.addEventListener('submit', saveMessage);
+  // messageForm.addEventListener('submit', count2 % 2 == 1);
   
   signOutButton.addEventListener('click', signOut);
   signInButton.addEventListener('click', signIn);
@@ -121,7 +125,6 @@ let showQuestion = () => {
 
 }
 
-// Show Question
 let loadMessages = () => {
   // Reference to the /messages/ database path.
   messagesRef = database.ref('messages');
@@ -133,10 +136,9 @@ let loadMessages = () => {
     let val = data.val();
     displayMessage(data.key, val.name, val.text, val.photoUrl);
   };
-  
   messagesRef.limitToLast(1).on('child_added', setMessage);
-  messagesRef.limitToLast(1).on('child_changed', setMessage);
-};
+  messagesRef.limitToLast(0).on('child_changed', setMessage);
+}; 
 
 // Triggers when the auth state change for instance when the user signs-in or signs-out.
 let onAuthStateChanged = (user) => {
@@ -156,7 +158,10 @@ let onAuthStateChanged = (user) => {
 
     // Hide sign-in button.
     signInButton.setAttribute('hidden', 'true');
-
+  
+    
+    // var div = document.getElementById(key);
+    // div.querySelector('.question').textContent = questionArray[count];
     // We load currently existing chant messages.
     loadMessages();
   } else { // User is signed out!
@@ -208,8 +213,20 @@ let MESSAGE_TEMPLATE =
 // A loading image URL.
 let LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
 
+function setQuestion()
+{
+  let question = document.getElementById('question');
+  var count2 = count+1;
+  if(count == questionArray.length - 1)
+    count2 = 1;
+  question.innerHTML = questionArray[count2];
+}
+
+
 // Displays a Message in the UI.
 let displayMessage = (key, name, text, picUrl) => {
+//   Set page Question before message display
+  setQuestion();
   var div = document.getElementById(key);
   
   // If an element for that message does not exists yet we create it.
@@ -223,16 +240,19 @@ let displayMessage = (key, name, text, picUrl) => {
   div.querySelector('.name').textContent = name;
   
   div.querySelector('.question').textContent = questionArray[count];
-  
   var messageElement = div.querySelector('.message');
   answerArray [count] = text;
   messageElement.textContent = answerArray [count];
+  if (count == 0){
+    messageElement.textContent = null;
+  }
+    
   count ++;
   if (count >= questionArray.length)
   {
     loadQuestion();
     load();
-    count = 0;
+    count = 1;
   }
   // console.log(answerArray[count]);
   // Replace all line breaks by <br>.
