@@ -10,52 +10,60 @@ body {
 }
 
 header {
- align-self: start; 
+ align-self: center; 
 }
 
 h1 {
   font-style: italic;
   color: black;
   width: fit-content;
-  padding: 0 1em 0 0.5em;
+  padding: 0 0.5em 0 0.5em;
   background-color: white;
-  box-shadow: 8px 5px black, -8px -5px red;
+  box-shadow: 8px 5px gold, -8px -5px blue;
+  align-self: center;
 }
 
 #user-container {
   display: flex;
   font-size: 14px;
+  background-color: white;
+ 
+  align-self: center;
 }
 
-#user-pic {
-  background-size: contain;
-  width: 20px;
-  height: 20px;
-}
 
 #messages-card {
   border: 2px solid black;
   /*width: 40%;*/
+  background-color: white;
+  
+  align-self: center;
 }
 
 #messages {
   padding: 0;
   list-style-type: none;
+  background-color: white;
+ 
+  align-self: center;
 }
 
 #question {
   font-size: 24px;
-  color: white; 
+  color: black; 
   font-family: "Helvetica";
   font-weight: bold;
+  background-color: white;
+  padding: 0.25em 0 0.25em 0;
+  align-self: center;
 }
 
 #inputArea {
-  background-color: dodgerblue;
-  padding: 10;
-  border: 1px white;
+  background-color: white;
+ 
+  align-self: center;  padding: 10;
+  text-align: center;
   width: 50%;
-  align-self: center;
 }
 
 #messages li:nth-child(even) {
@@ -80,8 +88,8 @@ h1 {
 
 #submit {
   padding: 5px;
-  background-color: dodgerblue;
-  color: white;
+  background-color: gold;
+  color: black;
   font-weight: bold;
   font-style: italic;
   border: none;
